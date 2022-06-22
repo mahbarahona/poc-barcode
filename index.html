@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Poc bar code</title>
+    <script src="https://unpkg.com/html5-qrcode@2.0.9/dist/html5-qrcode.min.js"></script>
+  </head>
+  <body>
+    <h1>POC Barcode</h1>
+    <p id="decodedText"></p>
+    <p id="decodedResult"></p>
+    <p id="error"></p>
+    <div style="width: 500px" id="reader"></div>
+
+    <script>
+      function onScanSuccess(decodedText, decodedResult) {
+        // Handle on success condition with the decoded text or result.
+        console.log(`Scan result: ${decodedText}`, decodedResult);
+        const dText = (document.querySelector("#decodedText").innerHTML =
+          decodedText);
+        const dResult = (document.querySelector("#decodedResult").innerHTML =
+          decodedResult);
+      }
+
+      function onScanError(errorMessage) {
+        // handle on error condition, with error message
+        const error = (document.querySelector("#error").innerHTML =
+          errorMessage);
+      }
+
+      var html5QrcodeScanner = new Html5QrcodeScanner("reader", {
+        fps: 10,
+        qrbox: 250,
+      });
+      html5QrcodeScanner.render(onScanSuccess, onScanError);
+    </script>
+  </body>
+</html>
