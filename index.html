@@ -19,20 +19,21 @@
         // Handle on success condition with the decoded text or result.
         console.log(`Scan result: ${decodedText}`, decodedResult);
         const dText = (document.querySelector("#decodedText").innerHTML =
-          decodedText);
-        const dResult = (document.querySelector("#decodedResult").innerHTML =
-          decodedResult);
+          "Result: " + decodedText);
+        // const dResult = (document.querySelector("#decodedResult").innerHTML =
+        //   decodedResult);
       }
 
       function onScanError(errorMessage) {
         // handle on error condition, with error message
-        const error = (document.querySelector("#error").innerHTML =
-          errorMessage);
+        const error =
+          "Error: " +
+          (document.querySelector("#error").innerHTML = errorMessage);
       }
 
       var html5QrcodeScanner = new Html5QrcodeScanner("reader", {
         fps: 10,
-        qrbox: 250,
+        qrbox: { width: 500, height: 200 },
       });
       html5QrcodeScanner.render(onScanSuccess, onScanError);
     </script>
