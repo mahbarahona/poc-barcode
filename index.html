@@ -12,10 +12,10 @@
     <p id="decodedText"></p>
     <p id="decodedResult"></p>
     <p id="error"></p>
+    <div style="width: 100%" id="reader"></div>
 
-    <button onclick="start()">Start</button>
-    <div style="width: 500px" id="reader"></div>
-
+    <!-- <button onclick="start()">Start</button>
+  
     <script>
       const html5QrCode = new Html5Qrcode("reader");
       const qrCodeSuccessCallback = (decodedText, decodedResult) => {
@@ -31,8 +31,8 @@
           qrCodeSuccessCallback
         );
       } // If you want to prefer back camera
-    </script>
-    <!-- <script>
+    </script> -->
+    <script>
       function onScanSuccess(decodedText, decodedResult) {
         // Handle on success condition with the decoded text or result.
         console.log(`Scan result: ${decodedText}`, decodedResult);
@@ -48,11 +48,10 @@
           "Error: " +
           (document.querySelector("#error").innerHTML = errorMessage);
       }
-      const config = { fps: 10, qrbox: { width: 300, height: 100 } };
+      const config = { fps: 10, qrbox: 250 };
 
       var html5QrcodeScanner = new Html5QrcodeScanner("reader", {});
-      html5QrcodeScanner.start()
       html5QrcodeScanner.render(onScanSuccess, onScanError);
-    </script> -->
+    </script>
   </body>
 </html>
