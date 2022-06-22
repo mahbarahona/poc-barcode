@@ -29,10 +29,12 @@
         },
       })
         .then((code) => {
+          document.querySelector("#otro").value = code;
           console.log(code);
         })
         .catch((err) => {
           console.log(err);
+          document.querySelector("#otro").value = err;
         });
     </script>
 
