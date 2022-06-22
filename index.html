@@ -5,8 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Poc bar code</title>
-    <script src="https://unpkg.com/html5-qrcode@2.0.9/dist/html5-qrcode.min.js"></script>
-    <script src="//unpkg.com/javascript-barcode-reader"></script>
+    <script src="https://unpkg.com/html5-qrcode"></script>
   </head>
   <body>
     <h1>POC Barcode</h1>
@@ -61,10 +60,6 @@
         // Important notice: this is experimental feature, use it at your
         // own risk. See documentation in
         // mebjas@/html5-qrcode/src/experimental-features.ts
-        experimentalFeatures: {
-          useBarCodeDetectorIfSupported: true,
-        },
-        rememberLastUsedCamera: true,
       });
 
       function onScanSuccess(decodedText, decodedResult) {
