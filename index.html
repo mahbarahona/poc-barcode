@@ -19,21 +19,21 @@
 
     <script>
       function start() {
-        javascriptBarcodeReader(
-          "#reader" /* Image ID || Image || Canvas || Canvas ImageData */,
-          { barcode: "code-39" }
-        )
+        javascriptBarcodeReader({
+          /* Image ID || HTML5 Image || HTML5 Canvas || HTML5 Canvas ImageData || Image URL */
+          image: source,
+          barcode: "code-93",
+          // barcodeType: 'industrial',
+          options: {
+            // useAdaptiveThreshold: true // for images with sahded portions
+            // singlePass: true
+          },
+        })
           .then((code) => {
             console.log(code);
-            const otro = (document.querySelector(
-              "#otro"
-            ).innerHTML = `Otro: ${code}`);
           })
-          .catch((e) => {
-            console.log(code);
-            const otro = (document.querySelector(
-              "#otro"
-            ).innerHTML = `Otro: ${code}`);
+          .catch((err) => {
+            console.log(err);
           });
       }
     </script>
