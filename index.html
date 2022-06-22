@@ -33,6 +33,14 @@
       } // If you want to prefer back camera
     </script> -->
     <script>
+      var html5QrcodeScanner = new Html5QrcodeScanner(
+        "reader",
+        {
+          fps: 10,
+          qrbox: 250,
+        },
+        true
+      );
       function onScanSuccess(decodedText, decodedResult) {
         // Handle on success condition with the decoded text or result.
         console.log(`Scan result: ${decodedText}`, decodedResult);
@@ -40,6 +48,7 @@
           "Result: " + decodedText);
         // const dResult = (document.querySelector("#decodedResult").innerHTML =
         //   decodedResult);
+        html5QrcodeScanner.stop();
       }
 
       function onScanError(errorMessage) {
@@ -50,10 +59,6 @@
       }
       const config = { fps: 10, qrbox: 250 };
 
-      var html5QrcodeScanner = new Html5QrcodeScanner("reader", {
-        fps: 10,
-        qrbox: 250,
-      });
       html5QrcodeScanner.render(onScanSuccess, onScanError);
     </script>
   </body>
