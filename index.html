@@ -70,9 +70,9 @@
         console.log(`Scan result: ${decodedText}`, decodedResult);
         const dText = (document.querySelector("#decodedText").innerHTML =
           "Result: " + decodedText);
-        // const dResult = (document.querySelector("#decodedResult").innerHTML =
-        //   decodedResult);
-        html5QrcodeScanner.stop();
+        const dResult = (document.querySelector("#decodedResult").innerHTML =
+          decodedResult);
+        // html5QrcodeScanner.stop();
       }
 
       function onScanError(errorMessage) {
@@ -81,7 +81,7 @@
           "Error: " +
           (document.querySelector("#error").innerHTML = errorMessage);
       }
-      const config = { fps: 10, qrbox: 250 };
+      const config = { fps: 10 };
 
       html5QrcodeScanner.render(onScanSuccess, onScanError);
     </script>
