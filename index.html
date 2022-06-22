@@ -13,13 +13,13 @@
     <p id="decodedText"></p>
     <p id="decodedResult"></p>
     <p id="error"></p>
-    <p id="otro">start</p>
+    <p id="otro">Result otro:</p>
     <button onclick="start()">Start</button>
     <div style="width: 100%" id="reader"></div>
 
     <script>
       function start() {
-        const code = javascriptBarcodeReader(
+        javascriptBarcodeReader(
           "#reader" /* Image ID || Image || Canvas || Canvas ImageData */,
           { barcode: "code-39" }
         )
